@@ -15,12 +15,11 @@ import router from './router'
 import '@/icons' // icon
 import '@/permission' // permission control
 
-// 全局注册
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
-
 // use
 Vue.use(mavonEditor)
+
 
 /**
  * If you don't want to use mock-server

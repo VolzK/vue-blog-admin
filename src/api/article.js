@@ -27,3 +27,24 @@ export function deleteArticleById(query) {
     method: 'get'
   })
 }
+
+// 保存文章
+export function saveArticle(data) {
+  return request({
+    baseURL: 'http://127.0.0.1:9090/api/',
+    url: '/article/save',
+    method: 'post',
+    data: data
+  })
+}
+
+// 修改文章
+export function updateArticle(data) {
+  return request({
+    baseURL: 'http://127.0.0.1:9090/api/',
+    url: '/article/update',
+    method: 'post',
+    data: data
+  })
+}
+

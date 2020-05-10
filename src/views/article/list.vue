@@ -10,10 +10,10 @@
         搜索
       </el-button>
 
-      <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit"
-                 @click="handleCreate"/>
-      发布文章
+      <el-button type="primary" icon="el-icon-edit" @click="handleCreate">
+        发布文章
       </el-button>
+
     </div>
 
     <el-table
@@ -24,38 +24,44 @@
       fit
       highlight-current-row
     >
-      <el-table-column align="center" label="ID" width="95">
+      <el-table-column align="center" label="ID" width="180">
         <template slot-scope="scope">
           {{ scope.row.id }}
         </template>
       </el-table-column>
 
-      <el-table-column label="标题">
+      <el-table-column label="标题" align="center" width="270">
         <template slot-scope="scope">
           {{ scope.row.title }}
         </template>
       </el-table-column>
 
-      <el-table-column label="作者" width="110" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.summary }}</span>
-        </template>
-      </el-table-column>
-
       <el-table-column label="浏览量" width="110" align="center">
         <template slot-scope="scope">
-          {{ scope.row.pageview }}
+          {{ scope.row.pageViews }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" prop="createTime" label="发布时间" width="200">
+      <el-table-column label="作者" width="150" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.createDate }}</span>
+          {{ scope.row.author }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" prop="createTime" label="发布时间" width="170">
+        <template slot-scope="scope">
+          <span>{{ scope.row.createTime }}</span>
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" prop="updateTime" label="更新时间" width="170">
+        <template slot-scope="scope">
+          <span>{{ scope.row.updateTime }}</span>
         </template>
       </el-table-column>
 
       <!--编辑-->
-      <el-table-column label="操作" align="center" width="250" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" width="180" class-name="small-padding fixed-width">
         <template slot-scope="{row,$index}">
           <el-button type="primary" size="mini" @click="handleEdit(row)">
             编辑
@@ -91,6 +97,7 @@
     data() {
       return {
         list: [],
+
         listLoading: true,
         total: 0,
         listQuery: {
@@ -104,35 +111,32 @@
     },
     methods: {
       fetchData: function () {
-        // 判空
-        // if (this.list.title == null || this.list.title == "" || this.list.title == 'undefined') {
-        //   this.this.list.title = "";
-        // }
         this.listLoading = true
         fetchList(this.listQuery).then(response => {
           this.list = response.data.records;
           this.total = response.data.total
-
           // Just to simulate the time of the request
           setTimeout(() => {
             this.listLoading = false
-          }, 0.2 * 1000)
+          }, 0.1 * 1000)
         })
       },
       // 删除
       handleDelete: function (row, index) {
         deleteArticleById(row.id).then(response => {
           if (20000 === response.code) {
-            this.$message({
-              message: '删除成功!',
-              type: 'success'
-            });
-            this.list.splice(list, 1);
+            this.$notify({
+              title: '成功',
+              message: '恭喜你，删除成功！',
+              type: 'success',
+            })
+            this.list.splice(index, 1);
           } else {
-            this.$message({
+            this.$notify({
+              title: '失败',
               message: response.message,
-              type: 'error'
-            });
+              type: 'error',
+            })
           }
         });
       },
