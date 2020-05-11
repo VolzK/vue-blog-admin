@@ -61,7 +61,7 @@ export const constantRoutes = [
         path: '/channel/list',
         name: 'List',
         component: () => import('@/views/channel/list'),
-        meta: { title: '菜单', icon: '菜单管理' }
+        meta: { title: '菜单', icon: 'menu' }
       }
     ]
   },
@@ -69,7 +69,7 @@ export const constantRoutes = [
     path: '/channel/list/', // 因为只有一级菜单，所以这里不写，粒度细化到具体路由
     hidden: true,
     component: Layout,
-    meta: { title: '菜单', icon: 'menus' },
+    meta: { title: '菜单', icon: 'menu' },
     children: [
       {
         path: '/channel/edit/:id',
@@ -106,7 +106,7 @@ export const constantRoutes = [
         path: 'list',
         name: 'List',
         component: () => import('@/views/article/list'),
-        meta: { title: '列表', icon: 'articleList' }
+        meta: { title: '列表', icon: 'list' }
       },
       {
         path: 'create',
@@ -121,13 +121,13 @@ export const constantRoutes = [
     path: '/article', // 上一级菜单URL
     hidden: true,
     component: Layout,
-    meta: { title: '管理', icon: 'form' },
+    meta: { title: '管理' },
     children: [
       {
         path: '/article/edit/:id',
         name: 'Edit',
         component: () => import('@/views/article/edit'),
-        meta: { title: '编辑', icon: 'form' }
+        meta: { title: '编辑', icon: 'publish' }
       }
     ]
   },
@@ -138,13 +138,13 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: '权限', icon: '权限' },
+    meta: { title: '权限', icon: 'permission' },
     children: [
       {
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: '用户列表', icon: 'table' }
+        meta: { title: '用户列表', icon: 'list' }
       },
       {
         path: 'tree',

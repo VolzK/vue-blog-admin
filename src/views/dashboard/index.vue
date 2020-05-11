@@ -9,7 +9,7 @@
     name: 'Dashboard',
     data() {
       return {
-        name: "基于Vue-element-template开发轻量级博客管理系统"
+        name: "基于Vue-admin-template开发轻量级博客管理系统"
       }
     }
   }
