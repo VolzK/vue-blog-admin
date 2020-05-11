@@ -49,7 +49,7 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: {title: '仪表盘', icon: 'dashboard'}
+      meta: { title: '首页', icon: 'home' }
     }]
   },
   // 菜单管理
@@ -61,7 +61,7 @@ export const constantRoutes = [
         path: '/channel/list',
         name: 'List',
         component: () => import('@/views/channel/list'),
-        meta: {title: '菜单管理', icon: 'form'}
+        meta: { title: '菜单', icon: '菜单管理' }
       }
     ]
   },
@@ -69,13 +69,13 @@ export const constantRoutes = [
     path: '/channel/list/', // 因为只有一级菜单，所以这里不写，粒度细化到具体路由
     hidden: true,
     component: Layout,
-    meta: {title: '菜单管理', icon: 'form'},
+    meta: { title: '菜单', icon: 'menus' },
     children: [
       {
         path: '/channel/edit/:id',
         name: 'Edit',
         component: () => import('@/views/channel/edit'),
-        meta: {title: '菜单编辑', icon: 'form'}
+        meta: { title: '编辑', icon: 'form' }
       }
     ]
   },
@@ -83,13 +83,13 @@ export const constantRoutes = [
     path: '/channel/list', // 上一级菜单URL
     hidden: true,
     component: Layout,
-    meta: {title: '菜单管理', icon: 'form'},
+    meta: { title: '管理', icon: 'form' },
     children: [
       {
         path: '/channel/add',
         name: 'Add',
         component: () => import('@/views/channel/add'),
-        meta: {title: '添加菜单', icon: 'form'}
+        meta: { title: '新增', icon: 'form' }
       }
     ]
   },
@@ -100,19 +100,19 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/article/list',
     name: 'Article',
-    meta: {title: '文章管理', icon: 'example'},
+    meta: { title: '文章', icon: 'article' },
     children: [
       {
         path: 'list',
         name: 'List',
         component: () => import('@/views/article/list'),
-        meta: {title: '文章列表', icon: 'table'}
+        meta: { title: '列表', icon: 'articleList' }
       },
       {
         path: 'create',
         name: 'Create',
         component: () => import('@/views/article/create'),
-        meta: {title: '发布文章', icon: 'tree'}
+        meta: { title: '发布', icon: 'publish' }
       }
     ]
   },
@@ -121,13 +121,13 @@ export const constantRoutes = [
     path: '/article', // 上一级菜单URL
     hidden: true,
     component: Layout,
-    meta: {title: '文章管理', icon: 'form'},
+    meta: { title: '管理', icon: 'form' },
     children: [
       {
         path: '/article/edit/:id',
         name: 'Edit',
         component: () => import('@/views/article/edit'),
-        meta: {title: '编辑文章', icon: 'form'}
+        meta: { title: '编辑', icon: 'form' }
       }
     ]
   },
@@ -138,19 +138,19 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: {title: 'Example', icon: 'example'},
+    meta: { title: '权限', icon: '权限' },
     children: [
       {
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: {title: 'Table', icon: 'table'}
+        meta: { title: '用户列表', icon: 'table' }
       },
       {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
-        meta: {title: 'Tree', icon: 'tree'}
+        meta: { title: '角色列表', icon: 'tree' }
       }
     ]
   },
@@ -163,87 +163,18 @@ export const constantRoutes = [
         path: 'index',
         name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: {title: 'Form', icon: 'form'}
-      }
-    ]
-  },
-
-  {
-    path: '/nested',
-    component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
-    meta: {
-      title: 'Nested',
-      icon: 'nested'
-    },
-    children: [
-      {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: {title: 'Menu1'},
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: {title: 'Menu1-1'}
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: {title: 'Menu1-2'},
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: {title: 'Menu1-2-1'}
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: {title: 'Menu1-2-2'}
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: {title: 'Menu1-3'}
-          }
-        ]
-      },
-      {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        meta: {title: 'menu2'}
-      }
-    ]
-  },
-
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: {title: 'External Link', icon: 'link'}
+        meta: { title: 'Form', icon: 'form' }
       }
     ]
   },
 
   // 404 page must be placed at the end !!!
-  {path: '*', redirect: '/404', hidden: true}
+  { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () => new Router({
   mode: 'history', // require service support
-  scrollBehavior: () => ({y: 0}),
+  scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })
 
