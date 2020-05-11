@@ -1,15 +1,12 @@
-# blog-management-system
+# MyBlog-Vue-Admin
 
- 简体中文 | [English](./README-EN.md)
+> 基于Vue-admin-template开发博客管理系统。
 
-> 这是一个极简的 vue admin 管理后台。它只包含了 Element UI & axios & iconfont & permission control & lint，这些搭建后台必要的东西。
-
-
-## Build Setup
+## 如何使用
 
 ```bash
 # 克隆项目
-git clone https://github.com/Wanzhk/blog-management-system.git
+git clone https://github.com/Wanzhk/MyBlog-Vue-Admin.git
 
 # 进入项目目录
 cd vue-admin-template
@@ -52,9 +49,9 @@ npm run lint
 npm run lint -- --fix
 ```
 
-## Demo
+## 演示[未完成版]
 
-![demo](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/demo.gif)
+![demo](./imgs/demo.gif)
 
 ## Browsers support
 
@@ -66,6 +63,6 @@ Modern browsers and Internet Explorer 10+.
 
 ## License
 
-[MIT](https://github.com/Wanzhk/blog-management-system/blob/master/LICENSE) license.
+[MIT](./LICENSE) license.
 
 Copyright (c) 2018-present Wanzhk
