@@ -2,6 +2,12 @@
 
 > 基于Vue-admin-template开发博客管理系统。
 
+
+## 演示[未完成版]
+
+![demo](./imgs/demo.gif)
+
+
 ## 如何使用
 
 ```bash
@@ -48,10 +54,6 @@ npm run lint
 # 代码格式检查并自动修复
 npm run lint -- --fix
 ```
-
-## 演示[未完成版]
-
-![demo](./imgs/demo.gif)
 
 ## Browsers support
 
