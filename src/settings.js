@@ -7,11 +7,11 @@ module.exports = {
    * @type {boolean} true | false
    * @description 导航栏是否置顶
    */
-  fixedHeader: false,
+  fixedHeader: true,
 
   /**
    * @type {boolean} true | false
    * @description 是否在侧边栏显示logo
    */
-  sidebarLogo: false
+  sidebarLogo: true
 }
